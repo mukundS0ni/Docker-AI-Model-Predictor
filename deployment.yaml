@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dog-cat-classifier
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dog-cat-classifier
+  template:
+    metadata:
+      labels:
+        app: dog-cat-classifier
+    spec:
+      containers:
+      - name: dog-cat-classifier
+        image: mukunddocker/dog_cat_image_classifier:1.1
+        ports:
+        - containerPort: 5000
